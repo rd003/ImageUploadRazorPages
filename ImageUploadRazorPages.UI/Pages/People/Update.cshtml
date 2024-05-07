@@ -1,0 +1,34 @@
+﻿@page
+@model ImageUploadRazorPages.UI.Pages.People.UpdateModel
+@{
+}
+<h3>Update Person</h3>
+
+<a href="/People/Index" class="btn btn-info">Back</a>
+
+<form method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Person.Id" />
+    <input type="hidden" asp-for="Person.ProfilePicture" />
+    <div class="my-2">
+        <label>First Name*</label>
+        <input type="text" class="form-control" asp-for="Person.FirstName" />
+        <span class="text-danger" asp-validation-for="Person.FirstName"></span>
+    </div>
+
+    <div class="my-2">
+        <label>Last Name*</label>
+        <input type="text" class="form-control" asp-for="Person.LastName" />
+        <span class="text-danger" asp-validation-for="Person.LastName"></span>
+    </div>
+
+    <div class="my-2">
+        <label>Profile Picture</label>
+        @if (!string.IsNullOrWhiteSpace(Model?.Person?.ProfilePicture))
+        {
+            <img src="/Images/@Model.Person.ProfilePicture" alt="profile pic" style="width:100px;height:80px;margin-bottom:5px" />
+        }
+        <input type="file" class="form-control" asp-for="Person.ImageFile" />
+    </div>
+
+    <button class="my-2 btn btn-primary">Save</button>
+</form>
