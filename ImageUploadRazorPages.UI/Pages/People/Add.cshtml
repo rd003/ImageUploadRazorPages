@@ -2,3 +2,27 @@
 @model ImageUploadRazorPages.UI.Pages.People.AddModel
 @{
 }
+<h3>Add Person</h3>
+
+<a href="/People/Index" class="btn btn-info">Back</a>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="my-2">
+        <label>First Name*</label>
+        <input type="text" class="form-control" asp-for="Person.FirstName" />
+        <span class="text-danger" asp-validation-for="Person.FirstName"></span>
+    </div>
+
+    <div class="my-2">
+        <label>Last Name*</label>
+        <input type="text" class="form-control" asp-for="Person.LastName" />
+        <span class="text-danger" asp-validation-for="Person.LastName"></span>
+    </div>
+
+    <div class="my-2">
+        <label>Profile Picture</label>
+        <input type="file" class="form-control" asp-for="Person.ImageFile" />
+    </div>
+
+    <button type="submit" class="my-2 btn btn-primary">Save</button>
+</form>
