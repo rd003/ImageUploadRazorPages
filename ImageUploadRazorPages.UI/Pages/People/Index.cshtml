@@ -1,0 +1,43 @@
+﻿@page
+@model ImageUploadRazorPages.UI.Pages.People.IndexModel
+@{
+}
+
+<h2>People</h2>
+<a href="/People/AddPerson" class="btn btn-info">Add More</a>
+
+@if (Model.PersonList.Count()>0)
+{
+<table class="table table-striped my-2" style="width:60%">
+     <tr>
+        <th>Name</th>
+        <th>Profile Picture</th>
+        <th>Action</th>
+     </tr>
+
+    @foreach (var person in Model.PersonList)
+    {
+        <tr>
+            <td>@person.FirstName @person.LastName</td>
+            <td>
+                @if(!string.IsNullOrWhiteSpace(person.ProfilePicture))
+                {
+                    <img alt="profile pic" style="width:100px;height:80px" src="/Images/@person.ProfilePicture"/>
+                }
+                else
+                {
+                    <span>No image</span>
+                }
+            </td>
+            <td>
+                  
+            </td>
+        </tr>
+    }
+
+    </table>
+}
+else
+{
+    <h4>No data found</h4>
+}

@@ -9,7 +9,7 @@ namespace ImageUploadRazorPages.Data.Repositories;
 
 public interface IPersonRepository
 {
-    Task<IActionResult> AddPerson(Person person);
+    Task AddPerson(Person person);
     Task DeletePerson(int id);
     Task<IEnumerable<Person>> GetPeople();
     Task<Person?> GetPersonById(int id);
@@ -27,7 +27,7 @@ public class PersonRepository : IPersonRepository
         _connectionString = _configuration.GetConnectionString("default");
     }
 
-    public async Task<IActionResult> AddPerson(Person person)
+    public async Task AddPerson(Person person)
     {
         using IDbConnection connection = new SqlConnection(_connectionString);
 
