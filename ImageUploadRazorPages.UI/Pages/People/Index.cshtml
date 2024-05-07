@@ -31,6 +31,10 @@
             </td>
             <td>
                   <a href="/People/Update?id=@person.Id" class="btn btn-info">Edit</a>
+                    <form style="display:inline" onsubmit="return window.confirm('Are you sure to delete this item???')" asp-page-handler="delete" method="post">
+                        <input type="hidden" name="id" value="@person.Id" />
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
             </td>
         </tr>
     }
