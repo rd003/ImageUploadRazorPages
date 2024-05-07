@@ -1,10 +1,12 @@
 using ImageUploadRazorPages.Data.Repositories;
+using ImageUploadRazorPages.Data.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddTransient<IPersonRepository, PersonRepository>();   
+builder.Services.AddTransient<IFileService, FileService>();   
 
 var app = builder.Build();
 
